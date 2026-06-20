@@ -1,0 +1,430 @@
+/* ----------------------------------------------------------------------------
+   1. Typography / Fonts
+   ---------------------------------------------------------------------------- */
+
+/* --- Space Grotesk --- */
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../assets/fonts/SpaceGrotesk-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../assets/fonts/SpaceGrotesk-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../assets/fonts/SpaceGrotesk-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../assets/fonts/SpaceGrotesk-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("../assets/fonts/SpaceGrotesk-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- Barlow (body / data) --- */
+@font-face {
+    font-family: "Barlow";
+    src: url("../assets/fonts/Barlow-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Barlow";
+    src: url("../assets/fonts/Barlow-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Barlow";
+    src: url("../assets/fonts/Barlow-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Barlow";
+    src: url("../assets/fonts/Barlow-MediumItalic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Barlow";
+    src: url("../assets/fonts/Barlow-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Barlow";
+    src: url("../assets/fonts/Barlow-SemiBoldItalic.woff2") format("woff2");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Barlow";
+    src: url("../assets/fonts/Barlow-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Barlow";
+    src: url("../assets/fonts/Barlow-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ----------------------------------------------------------------------------
+   2. Design tokens
+   ---------------------------------------------------------------------------- */
+
+:root {
+    /* --- Brand / structural blues (from Halcyon) --- */
+    --c-blue-royal: #1a4782;
+    --c-blue-navy: #23365a;
+    --c-blue-royal-bright: #2c6fd8; /* lighter, for dark-bg links/focus */
+
+    /* --- Instrument readout accent (cyan phosphor) --- */
+    --c-readout: #3ad8d2;
+
+    /* --- Greyscale ramp (graphite -> light) --- */
+    --c-graphite: #2c2c30;
+    --c-graphite-900: #161618;
+    --c-graphite-800: #1d1d20;
+    --c-graphite-700: #26262a;
+    --c-gray-dark-dark: #818087;
+    --c-gray-dark: #a9a8af;
+    --c-gray-light: #eeeeee;
+    --c-black: #000000;
+    --c-white: #ffffff;
+
+    /* --- Gas / status semantics (PPO2, deco, alarms) --- */
+
+    /* --- Semantic surface roles (DARK theme = default) --- */
+    --bg: var(--c-graphite-900);
+    --bg-raised: var(--c-graphite-800);
+    --bg-panel: var(--c-graphite-700);
+    --bg-inset: var(--c-graphite-900);
+    --fg: var(--c-gray-light);
+    --fg-muted: var(--c-gray-dark);
+    --fg-faint: var(--c-gray-dark-dark);
+    --border: #34343a;
+    --border-strong: #44444c;
+    --accent: var(--c-readout);
+    --accent-strong: var(--c-blue-royal-bright);
+    --link: var(--c-readout);
+    --link-hover: var(--c-white);
+
+    /* --- Typography --- */
+    --font-display: "Space Grotesk", "Barlow", system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+    --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-data: "Barlow", system-ui, sans-serif;
+    --font-mono: "JetBrainsMono Nerd Font", "JetBrains Mono", ui-monospace,
+    "SFMono-Regular", "Cascadia Mono", Consolas, monospace;
+    /* Optional: Space Grotesk for readouts, cohesive with the display face.
+       Swap --font-mono's value to var(--font-mono-supply) to use it everywhere,
+       or apply .monospace-text--supply per element. */
+    --font-mono-supply: "Space Grotesk", "JetBrainsMono Nerd Font",
+    "JetBrains Mono", ui-monospace, monospace;
+
+    --fs-xs: 0.75rem;   /* 12px — captions, units */
+    --fs-sm: 0.875rem;  /* 14px — secondary text */
+    --fs-base: 1rem;    /* 16px — body */
+    --fs-lg: 1.25rem;   /* 20px — subheads */
+    --fs-xl: 1.5rem;    /* 24px */
+    --fs-2xl: 1.875rem; /* 30px */
+    --fs-3xl: 2.5rem;   /* 40px — section titles */
+    --fs-readout: 3rem; /* 48px — primary numeric display */
+
+    --lh-tight: 1.1;
+    --lh-normal: 1.5;
+
+    --tracking-wide: 0.1rem;   /* labels / eyebrows */
+    --tracking-data: 0.03rem;  /* readouts */
+
+    /* --- Spacing scale (rem) --- */
+    --sp-1: 0.25rem;
+    --sp-2: 0.5rem;
+    --sp-3: 0.75rem;
+    --sp-4: 1rem;
+    --sp-5: 1.25rem;
+    --sp-6: 1.5rem;
+    --sp-8: 2rem;
+
+    /* --- Geometry --- */
+    --notch: 8px;            /* the chamfered-corner signature */
+    --gutter: 3.125rem;      /* 50px content gutter, collapses on mobile */
+    --hairline: 1px;
+
+    /* --- Effects --- */
+    --shadow-panel: 0 2px 8px rgba(0, 0, 0, 0.45);
+    --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- LIGHT theme override --- */
+:root[data-theme="light"] {
+    --bg: var(--c-white);
+    --bg-raised: #f7f7f8;
+    --bg-panel: var(--c-gray-light);
+    --bg-inset: #fafafb;
+    --fg: var(--c-graphite);
+    --fg-muted: var(--c-gray-dark-dark);
+    --fg-faint: var(--c-gray-dark);
+    --border: #dddde2;
+    --border-strong: var(--c-gray-dark);
+    --accent: var(--c-blue-royal);
+    --accent-strong: var(--c-blue-navy);
+    --link: var(--c-blue-royal);
+    --link-hover: var(--c-blue-navy);
+    --shadow-panel: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+        --bg: var(--c-white);
+        --bg-raised: #f7f7f8;
+        --bg-panel: var(--c-gray-light);
+        --bg-inset: #fafafb;
+        --fg: var(--c-graphite);
+        --fg-muted: var(--c-gray-dark-dark);
+        --fg-faint: var(--c-gray-dark);
+        --border: #dddde2;
+        --border-strong: var(--c-gray-dark);
+        --accent: var(--c-blue-royal);
+        --accent-strong: var(--c-blue-navy);
+        --link: var(--c-blue-royal);
+        --link-hover: var(--c-blue-navy);
+        --shadow-panel: 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+}
+
+/* ----------------------------------------------------------------------------
+   3. Reset / base
+   ---------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body), sans-serif;
+    font-size: var(--fs-base);
+    line-height: var(--lh-normal);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 var(--sp-4);
+    font-family: var(--font-display), sans-serif;
+    font-weight: 400; /* Space Grotesk Regular */
+    line-height: var(--lh-tight);
+    color: var(--fg);
+}
+
+h1 { font-size: var(--fs-3xl); letter-spacing: -0.02em; }
+h2 { font-size: var(--fs-2xl); letter-spacing: -0.015em; }
+h3 { font-size: var(--fs-xl); }
+h4 { font-size: var(--fs-lg); }
+
+p { margin: 0 0 var(--sp-4); }
+
+a {
+    color: var(--link);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+a:hover { color: var(--link-hover); text-decoration: underline; }
+
+hr {
+    border: 0;
+    border-top: var(--hairline) solid var(--border);
+    margin: var(--sp-8) 0;
+}
+
+code, pre, samp, kbd {
+    font-family: var(--font-mono), sans-serif;
+    font-size: 0.9em;
+}
+
+ul, ol { margin: 0 0 var(--sp-4); padding-left: var(--sp-5); }
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ----------------------------------------------------------------------------
+   4. Layout helpers
+   ---------------------------------------------------------------------------- */
+
+.app-container {
+    width: 100%;
+    max-width: 1916px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+}
+
+@media (max-width: 1280px) {
+    .app-container { padding-inline: 1.25rem; }
+}
+@media (max-width: 375px) {
+    .app-container { padding-inline: 0.625rem; }
+}
+
+.vertical-stack > * + * { margin-top: var(--sp-4); }
+
+/* ----------------------------------------------------------------------------
+   5. Signature: the chamfered notch
+   Apply .notched-corner to any panel/button for the Halcyon-style 8px corner cut.
+   ---------------------------------------------------------------------------- */
+
+.notched-corner {
+    --_n: var(--notch);
+    clip-path: polygon(
+            var(--_n) 0,
+            100% 0,
+            100% calc(100% - var(--_n)),
+            calc(100% - var(--_n)) 100%,
+            0 100%,
+            0 var(--_n)
+    );
+}
+
+/* ----------------------------------------------------------------------------
+   6. Panels / cards
+   ---------------------------------------------------------------------------- */
+
+.form-panel {
+    background-color: var(--bg-panel);
+    border: var(--hairline) solid var(--border);
+    padding: var(--sp-6);
+    box-shadow: var(--shadow-panel);
+}
+
+/* ----------------------------------------------------------------------------
+   7. Buttons
+   Primary uses the chamfered notch; the signature lives here.
+   ---------------------------------------------------------------------------- */
+
+.form-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    padding: 0.625rem 1.5rem;
+    font-family: var(--font-display), sans-serif;
+    font-size: var(--fs-base);
+    font-weight: 400; /* Space Grotesk Regular */
+    line-height: 1.1;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    border: var(--hairline) solid transparent;
+    background-color: var(--accent-strong);
+    color: var(--c-white);
+    transition: background-color var(--transition), color var(--transition),
+    opacity var(--transition);
+    clip-path: polygon(
+            var(--notch) 0, 100% 0,
+            100% calc(100% - var(--notch)),
+            calc(100% - var(--notch)) 100%,
+            0 100%, 0 var(--notch)
+    );
+}
+.form-button:hover { background-color: var(--c-blue-royal); color: var(--c-white); text-decoration: none; }
+.form-button:disabled { opacity: 0.35; cursor: default; }
+
+
+/* ----------------------------------------------------------------------------
+   8. Forms / inputs
+   ---------------------------------------------------------------------------- */
+
+.form-group { display: flex; flex-direction: column; gap: var(--sp-2); margin-bottom: var(--sp-4); }
+
+.form-label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--fg-muted);
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-family: var(--font-data), sans-serif;
+    font-size: var(--fs-base);
+    color: var(--fg);
+    background-color: var(--bg-inset);
+    border: var(--hairline) solid var(--border-strong);
+    border-radius: 0;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+}
+.form-input::placeholder { color: var(--fg-faint); }
+
+/* Monospace inputs for numeric entry (depths, fractions, pressures) */
+.form-input--numeric {
+    font-family: var(--font-mono), sans-serif;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+
+
+/* ----------------------------------------------------------------------------
+   9. Accessibility — reduced motion
+   ---------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

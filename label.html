@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DiveTools - Label</title>
+    <!-- Link to the main styles and the new label styles -->
+    <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/label.css">
+</head>
+<body>
+<div class="analysis-label">
+    <hr>
+    <div class="analysis-label__hero-value">
+        <span id="display-large-gastype">Gas Analysis</span>
+    </div>
+    <hr>
+    <!-- O2 and He Fields -->
+    <div class="analysis-label__row">
+        <span>O2: <span id="display-o2" class="analysis-label__value"></span>%</span>
+        <span>He: <span id="display-he" class="analysis-label__value"></span>%</span>
+    </div>
+    <hr>
+    <!-- MOD Field -->
+    <div class="analysis-label__hero">
+        <div class="analysis-label__hero-value">
+            <span id="display-large-label"></span><small id="display-large-units"></small>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- PSI/BAR Field -->
+    <div class="analysis-label__row">PSI/BAR: </div>
+    <!-- Date and Analyst Fields -->
+    <div class="analysis-label__row analysis-label__row--analyst">
+        <span>Date: <br><span id="display-date" class="analysis-label__value"></span></span>
+        <span>Analyst: <br><span id="display-name" class="analysis-label__value"></span></span>
+    </div>
+</div>
+
+
+<script type="module" src="./src/label.js"></script>
+</body>
+</html>

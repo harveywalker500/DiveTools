@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DiveTools</title>
+  <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+<body>
+<div id="app">
+  <div class="app-container">
+    <h1>Gas Analysis Label Generator</h1>
+    <br>
+
+    <form id="labelForm" name="LabelPrinter" class="form-panel notched-corner vertical-stack" style="max-width: 400px;">
+
+      <div class="form-group">
+        <label for="o2" class="form-label">O2 (%)</label>
+        <input type="number" id="o2" name="o2" class="form-input form-input--numeric" step="0.1" min="0" max="100" required>
+      </div>
+
+      <div class="form-group">
+        <label for="he" class="form-label">He (%)</label>
+        <input type="number" id="he" name="he" class="form-input form-input--numeric" step="0.1" min="0" max="100" required>
+      </div>
+
+      <div class="form-group">
+        <label for="po2" class="form-label">PPO2</label>
+        <input type="number" id="po2" name="po2" class="form-input form-input--numeric" step="0.1" min="0" max="1.6" required>
+      </div>
+
+      <div class="form-group">
+        <label for="units" class="form-label">Units</label>
+        <select id="units" name="units" class="form-select" required>
+          <option value="imperial">Imperial</option>
+          <option value="metric">Metric</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="rounding" class="form-label">Rounding</label>
+        <select id="rounding" name="rounding" class="form-select" required>
+          <option value="2">1</option>
+          <option value="3">0.1</option>
+          <option value="4">0.01</option>
+        </select>
+      </div>
+      <hr>
+      <div class="form-group">
+        <label for="analysisDate" class="form-label">Analysis Date</label>
+        <input type="date" id="analysisDate" name="analysisDate" class="form-input" required>
+      </div>
+
+      <div class="form-group">
+        <label for="analystName" class="form-label">Analysed By</label>
+        <input type="text" id="analystName" name="analystName" class="form-input" placeholder="Your Name" required>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="form-button">Print Label</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
